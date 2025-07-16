@@ -1,7 +1,16 @@
 import Navbar from "../components/navbar";
+import { useState } from "react";
+import RateLimitedUI from "../components/RateLimitedUI"
+
 const HomePage = () => {
-    return <div className="min-h-screen">
-        <Navbar/>
-    </div>;
+    const [isRateLimited, setIsRateLimited] = useState(false);
+
+    return (
+     <div className="min-h-screen">
+         <Navbar/>
+
+            {isRateLimited && <RateLimitedUI/>}
+     </div>
+    );
 };
 export default HomePage;
